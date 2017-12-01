@@ -49,6 +49,7 @@ func NewOpenstackExporter(conn *sql.DB, cloud string) *OpenstackExporter {
   return &OpenstackExporter{
     collectors: []prometheus.Collector{
       collectors.NewQuotaUsageCollector(conn, cloud),
+      collectors.NewInstanceUsageCollector(conn, cloud),
     },
   }
 }

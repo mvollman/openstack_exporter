@@ -180,9 +180,8 @@ func (c *QuotaUsageCollector) collect() error {
   }
 
   for rows.Next() {
-    var quota string
+    var quota, project string
     var qval float64
-    var project string
     err = rows.Scan(&quota, &qval, &project)
     if err != nil {
       log.Fatal(err.Error())
